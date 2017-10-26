@@ -1,0 +1,34 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+    "manifest_version": 2,
+    "name": "2ndOrder",
+    "version": "1.0.0",
+    "description": "Find 2ndOrder XSS vulnerabilities--in JS!",
+    "short_name": "2ndOrder",
+    "offline_enabled": true,
+
+    "permissions": ["activeTab", "cookies", "tabs", "webNavigation", "webRequest", "webRequestBlocking", "http://*/*", "https://*/*", "<all_urls>"],
+
+    "browser_action": {
+        "default_title": "",
+        "default_popup": "popup.html"
+    },
+
+  "permissions": [
+    "storage"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["checker.js"]
+    }
+  ],
+
+  "web_accessible_resources": [
+    "number.js"
+  ]
+}
